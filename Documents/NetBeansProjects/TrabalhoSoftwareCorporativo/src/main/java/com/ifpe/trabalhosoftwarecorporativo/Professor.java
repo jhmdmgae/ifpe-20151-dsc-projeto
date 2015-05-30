@@ -39,7 +39,7 @@ public class Professor extends Usuario implements Serializable{
     
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "CARGO", nullable = false)
-    private String Cargo;
+    private Cargo Cargo;
     
     @Column(name = "LATTES", length = 255, nullable = false)
     private String Lattes;
@@ -67,11 +67,11 @@ public class Professor extends Usuario implements Serializable{
         this.Siape = Siape;
     }
 
-    public String getCargo() {
+    public Cargo getCargo() {
         return Cargo;
     }
 
-    public void setCargo(String Cargo) {
+    public void setCargo(Cargo Cargo) {
         this.Cargo = Cargo;
     }
 

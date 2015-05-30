@@ -35,7 +35,7 @@ public class Funcionario extends Usuario implements Serializable{
     
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "CARGO", nullable = false)
-    private String Cargo;
+    private Cargo Cargo;
 
     public Long getID() {
         return ID;
@@ -53,14 +53,12 @@ public class Funcionario extends Usuario implements Serializable{
         this.Siape = Siape;
     }
 
-    public String getCargo() {
+    public Cargo getCargo() {
         return Cargo;
     }
 
-    public void setCargo(String Cargo) {
+    public void setCargo(Cargo Cargo) {
         this.Cargo = Cargo;
     }
-    
-    
     
 }

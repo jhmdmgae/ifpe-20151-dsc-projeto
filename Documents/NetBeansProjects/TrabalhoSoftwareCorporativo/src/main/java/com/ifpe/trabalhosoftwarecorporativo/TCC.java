@@ -39,8 +39,8 @@ public class TCC implements Serializable{
     @Column(name = "TITULO", nullable = false)
     private String Titulo;
     
-    @OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
-    @JoinColumn(name = "ID_aluno", referencedColumnName = "ID")
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_ALUNO", referencedColumnName = "ID")
     private List<Aluno> Autores;
     
     @Column(name = "AREA_CONHECIMENTO", nullable = false)
@@ -53,14 +53,13 @@ public class TCC implements Serializable{
     @Column(name = "IMPRENTA", nullable = true)
     private String Imprenta;
     
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = true)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "ID_PROFESSOR", referencedColumnName = "ID")
     private Professor Orientador;
     
     @Column(name = "BANCA_EXAMINADORA", nullable = false)
     private String BancaExaminadora;
     
-    //mudar
     @Column(name = "TAGS", nullable = false)
     private String Tags;
     
