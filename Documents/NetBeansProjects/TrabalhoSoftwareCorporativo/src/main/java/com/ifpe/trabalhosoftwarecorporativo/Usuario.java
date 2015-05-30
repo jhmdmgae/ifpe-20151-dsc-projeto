@@ -33,9 +33,9 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "USUARIO")
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "DISC_USUARIO",discriminatorType = DiscriminatorType.STRING, length = 1)
+@DiscriminatorColumn(name = "DISC_USUARIO", discriminatorType = DiscriminatorType.STRING, length = 1)
 @Access(AccessType.FIELD)
-@SecondaryTable(name = "TB_FOTO_USUARIO",pkJoinColumns = {@PrimaryKeyJoinColumn(name = "ID_USUARIO")})
+@SecondaryTable(name = "FOTO_USUARIO",pkJoinColumns = {@PrimaryKeyJoinColumn(name = "ID_USUARIO")})
 public class Usuario implements Serializable{
     
     @Id
@@ -56,12 +56,12 @@ public class Usuario implements Serializable{
     private Date dataNascimento;
     
     @ElementCollection
-    @CollectionTable(name = "TB_TELEFONE", joinColumns = @JoinColumn(name = "ID_USUARIO", nullable = false))
+    @CollectionTable(name = "TELEFONE", joinColumns = @JoinColumn(name = "ID_USUARIO", nullable = false))
     @Column(name = "TELEFONE")
     private Collection<String> Telefones;
     
     @Basic(fetch = FetchType.LAZY)
-    @Column(name = "FOTO", table = "TB_FOTO_USUARIO", nullable = true)
+    @Column(name = "FOTO", table = "FOTO_USUARIO", nullable = true)
     private byte[] Foto;
 
     public Long getID() {

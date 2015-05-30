@@ -16,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,6 +29,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "DOCUMENTO")
+@SecondaryTable(name = "ARQUIVO_TCC", pkJoinColumns = {@PrimaryKeyJoinColumn(name = "ID_TCC")})
 public class TCC implements Serializable{
     
     @Id
@@ -36,7 +39,7 @@ public class TCC implements Serializable{
     @Column(name = "TITULO", nullable = false)
     private String Titulo;
     
-    //@OneToMany(fetch = FetchType.LAZY, optional = false)
+    @OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinColumn(name = "ID_aluno", referencedColumnName = "ID")
     private List<Aluno> Autores;
     
@@ -65,7 +68,7 @@ public class TCC implements Serializable{
     private String Resumo;
     
     @Basic(fetch = FetchType.LAZY)
-    @Column(name = "arquivo", table = "ARQUIVO_TCC", nullable = true)
+    @Column(name = "ARQUIVO", table = "ARQUIVO_TCC", nullable = true)
     private byte[] Arquivo;
     
     @Enumerated(EnumType.ORDINAL)

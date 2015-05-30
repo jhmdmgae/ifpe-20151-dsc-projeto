@@ -33,10 +33,10 @@ public class Aluno extends Usuario implements Serializable {
     private String matricula;
 
     @Enumerated(EnumType.ORDINAL)
-    @Column(name = "STATUS", nullable = false)
-    private String status;
+    @Column(name = "STATUS_ALUNO", nullable = false)
+    private StatusAluno status;
 
-    @Column(name = "ESTAGIARIO", length = 14, nullable = false)
+    @Column(name = "ESTAGIARIO", nullable = true)
     private boolean estagiario;
 
     @Column(name = "TURMA", length = 14, nullable = false, unique = true)
@@ -58,11 +58,11 @@ public class Aluno extends Usuario implements Serializable {
         this.matricula = matricula;
     }
 
-    public String getStatus() {
+    public StatusAluno getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(StatusAluno status) {
         this.status = status;
     }
 

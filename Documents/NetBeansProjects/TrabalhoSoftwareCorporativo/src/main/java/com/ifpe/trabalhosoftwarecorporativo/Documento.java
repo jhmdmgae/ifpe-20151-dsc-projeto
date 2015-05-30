@@ -31,7 +31,7 @@ public class Documento implements Serializable{
     
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "STATUS_EVENTO", nullable = false)
-    private String Tipo;
+    private StatusEvento Status;
 
     public Long getID() {
         return ID;
@@ -57,12 +57,12 @@ public class Documento implements Serializable{
         this.Arquivo = Arquivo;
     }
 
-    public String getTipo() {
-        return Tipo;
+    public StatusEvento getTipo() {
+        return Status;
     }
 
-    public void setTipo(String Tipo) {
-        this.Tipo = Tipo;
+    public void setTipo(StatusEvento Status) {
+        this.Status = Status;
     }
     
 }
