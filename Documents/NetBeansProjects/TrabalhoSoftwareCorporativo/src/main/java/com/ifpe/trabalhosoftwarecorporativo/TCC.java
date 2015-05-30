@@ -36,7 +36,7 @@ public class TCC implements Serializable{
     @Column(name = "TITULO", nullable = false)
     private String Titulo;
     
-    @OneToMany(fetch = FetchType.LAZY, optional = false)
+    //@OneToMany(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ID_aluno", referencedColumnName = "ID")
     private List<Aluno> Autores;
     
